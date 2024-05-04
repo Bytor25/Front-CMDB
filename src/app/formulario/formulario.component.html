@@ -1,0 +1,20 @@
+<input type="text" placeholder="Ingresa tu Nombre" class="form-control" #name>
+
+<button class="btn btn-primary mt-2"(click)="imprimirNombre(name.value)">
+    Mostrar Nombre
+</button>
+
+<div class="alert alert-primary" *ngIf="openAlert; else mensaje">
+   <p>Se imprimio el nombre</p>
+    <button class="btn btn-danger mt-2" (click)="openAlert=false">
+        x
+    </button>
+</div>
+
+<ng-template #mensaje>
+    <div class="alert alert-danger mt-4">
+        Mensaje de prueba
+    </div>
+</ng-template>
+
+<p>{{nombre}}</p>

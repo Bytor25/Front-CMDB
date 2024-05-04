@@ -1,13 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: #A3A3A3; /* Gris claro */
-}
-
-.frame-container {
-    width: 300px; /* Ancho del frame */
-    height: 200px; /* Altura del frame */
-    border: 2px solid #ccc; /* Borde del frame */
-    border-radius: 10px; /* Radio de borde para bordes redondeados */
-    overflow: hidden; /* Oculta el contenido que sobresale del frame */
-    /* Puedes agregar más estilos según tus necesidades */
+    background-color: #A3A3A3;
 }
