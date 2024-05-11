@@ -1,0 +1,162 @@
+<section>
+    <html lang="es">
+    <head>
+
+      <title>Registro de clientes</title>
+
+    </head>
+
+    <body>
+
+        <nav class="formulario">
+
+            <div class="card">
+                
+                <div class="card-body">
+
+                    <form (ngSubmit)="procesar()" #formularioCliente="ngForm">
+            
+                        <div class="mb-2">
+
+                            <label class="form-label">
+                                Número de identificación: *
+                            </label>
+            
+                            <input type="text" name="id" class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.id" required #id="ngModel">
+
+                            <div class="alert alert-danger mt-2" [hidden]="id.valid || id.pristine">
+
+                                Este campo es obligatorio
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-2">
+
+                            <label class="form-label">
+                              Tipo de documento: *
+                            </label>
+
+                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipoIdentificacion" required #tipoDocumento="ngModel">
+
+                              <option value="">Seleccione una opción</option>
+                                <option value="" disabled hidden>tipo de identificación</option>
+                                <option value="Cédula" >Cédula de Ciudadanía</option>
+                                <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                                <option value="NIT">NIT</option>
+                              <span class="required">*</span>
+
+                            </select>
+
+                            <div class="alert alert-danger mt-2" [hidden]="tipoDocumento.valid || tipoDocumento.pristine">
+
+                                Este campo es obligatorio
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-2">
+
+                            <label class="form-label">
+                                Nombre/s: *
+                            </label>
+            
+                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre nombre" [(ngModel)]="persona.nombre" required #nombre="ngModel">
+
+                            <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">
+
+                                Este campo es obligatorio
+
+                            </div>
+
+                        </div>
+            
+                        <div class="mb-2">
+
+                            <label class="form-label">
+                                Apellidos: *
+                            </label>
+
+                            <input type="text" name="apellido" class="form-control" placeholder="Ingrese los apellidos" [(ngModel)]="persona.apellido" required #apellido="ngModel">
+
+                            <div class="alert alert-danger mt-2" [hidden]="apellido.valid || apellido.pristine">
+
+                                Este campo es obligatorio
+
+                            </div>
+
+                        </div>
+            
+                        <div class="mb-2">
+
+                            <label class="form-label">
+                                Email: *
+                            </label>
+
+                            <input type="email" name="correoElectronico" class="form-control" placeholder="Ingrese un Email" [(ngModel)]="persona.email" required #correoElectronico="ngModel">
+
+                            <div class="alert alert-danger mt-2" [hidden]="correoElectronico.valid || correoElectronico.pristine">
+                                Este campo es obligatorio
+                            </div>
+
+                        </div>
+            
+                        <div class="mb-2">
+                            
+                            <label class="form-label">
+                                Teléfono: *
+                            </label>
+
+                            <input type="number" name="telefono" class="form-control" placeholder="Ingrese un número de telefono" [(ngModel)]="persona.telefono" required #telefono="ngModel">
+
+                            <div class="alert alert-danger mt-2" [hidden]="telefono.valid || telefono.pristine">
+
+                                Este campo es obligatorio
+
+                            </div>
+
+                        </div>
+
+                        <nav class="botones-registro">
+
+                            <button class="opciones-registro" [disabled]="formularioCliente.invalid">
+                                Registrar
+                            </button>
+                            
+                            <button class="opciones-registro" (click)="visible=!visible">
+                                Cancelar
+                            </button>
+                            
+                        </nav>
+            
+                    </form>
+
+                    <div class="cancel-alert" role="alert" [hidden]="!visible">
+                        <span [hidden]="!visible">
+                          <h2>¿Desea cancelar la transacción?</h2>
+                          <p>Si acepta, perderá todo el proceso y volverá a la página de clientes.</p>
+                      
+                          <button class="boton-cancel-alert" (click)="visible=visible">
+                            <a class="boton-ventana-emergente" href="/clientes" aria-label="Perder proceso y volver a clientes">
+                              Aceptar
+                            </a>
+                          </button>
+                      
+                          <button class="boton-cancel-alert" (click)="visible=!visible">
+                            Cancelar
+                          </button>
+                        </span>
+                      </div>
+            
+                </div>
+            </div>
+            
+        </nav>
+
+    </body>
+    </html>
+  </section>
+

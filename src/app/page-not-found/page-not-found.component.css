@@ -1,0 +1,40 @@
+
+/* Estilo general para la página 404 */
+body {
+    font-family: "Ledger", serif;
+    padding: 140px;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    max-height: auto; 
+  }
+  
+  .error404-information {
+    flex-direction: column; 
+    width: 100%;
+    max-width: 150px;
+    margin: 100px;
+  }
+  
+  .error404 {
+    color: white; 
+    font-size: 220px;
+    font-weight: bold; 
+    margin: 0; 
+  }
+  
+  .parrafo {
+    color: black; 
+    font-size: 40px; 
+    margin: 0;
+  }
+
+  .Imagen404 {
+    justify-content: center; 
+  }
+  
+  .Imagen {
+    max-width: 400px;
+    height: auto; 
+  }
+  

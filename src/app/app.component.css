@@ -1,0 +1,47 @@
+/* Estilo general para la página 404 */
+body {
+    font-family: sans-serif; /* Elegir una fuente sans-serif adecuada */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Usar flexbox para la disposición */
+    align-items: center; /* Centrar el contenido verticalmente */
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    min-height: 100vh; /* Asegurar que la página ocupe toda la altura de la ventana */
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+  }
+  
+  /* Estilo para la sección de información 404 */
+  .error404-information {
+    display: flex; /* Usar flexbox para la disposición */
+    flex-direction: column; /* Disposición en columna */
+    align-items: flex-start; /* Alinear el contenido a la izquierda */
+    margin: 0 20px; /* Margen a la derecha e izquierda */
+  }
+  
+  /* Estilo para el título 404 */
+  .error404 {
+    color: white; /* Texto blanco */
+    font-size: 120px; /* Tamaño de letra grande */
+    font-weight: bold; /* Texto en negrita */
+    margin: 0; /* Eliminar margen predeterminado */
+  }
+  
+  /* Estilo para el párrafo */
+  .parrafo {
+    color: black; /* Texto negro */
+    font-size: 18px; /* Tamaño de letra normal */
+    margin: 0; /* Eliminar margen predeterminado */
+  }
+  
+  /* Estilo para la sección de la imagen 404 */
+  .image404 {
+    display: flex;
+    align-items: center; /* Centrar la imagen verticalmente */
+  }
+  
+  /* Estilo para la imagen */
+  .image404 img {
+    max-width: 500px; /* Ancho máximo de la imagen */
+    height: auto; /* Conservar la relación de aspecto */
+  }
+  

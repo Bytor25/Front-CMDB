@@ -1,34 +1,11 @@
-  /* Estilo general */
-  body {
-    font-family: sans-serif;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  /* Frame superior */
-  .frame-superior {
-    background-color: #FFFFFF;
-    height: 100px;
-    max-height: 150px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    width: 100px;
-    height: 100px;
-  }
 
   /* Menú horizontal */
-
   .ledger-regular {
     font-family: "Ledger", serif;
     font-weight: 200;
     font-style: normal;
   }
-
+  
   .menu-horizontal {
     background-color: #525252;
     padding: 10;
@@ -43,7 +20,7 @@
     padding: 15px 24px;
     text-decoration: none;
     color: white;
-    transition: background-color 1s ease;
+    transition: background-color 0.5s ease;
   }
 
   .opcion-menu-seleccionado {
@@ -65,8 +42,11 @@
 
   .botones-opciones-clientes {
     display: flex;
-    flex-direction: row; /* Cambiado a dirección de fila para colocar las opciones horizontalmente */
-    justify-content: center; /* Centra las opciones horizontalmente */
+    flex-direction: row; 
+    justify-content: center; 
+    display: flex; 
+    align-items: center; 
+    padding: 200px 50px; 
   }
   .opciones-clientes{
     background-color: #525252;
@@ -77,8 +57,9 @@
 
     justify-content: center;
     padding: 20px 50px;
-    transition: background-color 1s ease;
-    margin: 50px auto;
+    transition: background-color 0.5s ease;
+    margin: 0 auto;
+
   }
 
   .opciones-clientes:hover{
@@ -88,9 +69,3 @@
     color: black;
   }
 
-  .botonoes-opciones-clientes {
-    display: flex; 
-    align-items: center; 
-    margin: 0 auto; 
-    padding: 200px 50px; 
-  }

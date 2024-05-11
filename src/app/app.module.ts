@@ -1,50 +1,51 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { NgSelectModule}  from '@ng-select/ng-select';
+import axios from 'axios';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import { BotonesComponent } from './botones/botones.component';
-import { FormularioComponent } from './formulario/formulario.component';
-import { BuclesComponent } from './bucles/bucles.component';
-import { SwitchComponent } from './switch/switch.component';
-import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
-import { InventarioComponent } from './inventario/inventario.component';
-import { CuentasPorPagarComponent } from './cuentas-por-pagar/cuentas-por-pagar.component';
-import { VentaComponent } from './venta/venta.component';
-import { CarteraComponent } from './cartera/cartera.component';
-import { ClientesComponent } from './clientes/clientes.component';
-import { ProveedoresComponent } from './proveedores/proveedores.component';
-import { GarantiaComponent } from './garantia/garantia.component';
 
-const routes: Routes = [
-{path: '', redirectTo: '/pantalla-principal',pathMatch:'full'},
+
+
+
+import { ClientesComponent } from './clientes/clientes.component';
+
+import { InterfazComunComponent } from './interfaz-comun/interfaz-comun.component';
+import { MenuHorizontalComponent } from './menu-horizontal/menu-horizontal.component';
+
+import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const appRoutes: Routes = [
+  { path: '', component: MenuHorizontalComponent },
+  { path: 'clientes', component: ClientesComponent },
+  {path: 'RegistrarCliente', component: RegistroClienteComponent},
+  {path: '404page', component: PageNotFoundComponent}
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
-    HelloWorldComponent,
-    BotonesComponent,
-    FormularioComponent,
-    BuclesComponent,
-    SwitchComponent,
-    PantallaPrincipalComponent,
-    InventarioComponent,
-    CuentasPorPagarComponent,
-    VentaComponent,
-    CarteraComponent,
     ClientesComponent,
-    ProveedoresComponent,
-    GarantiaComponent,
+    InterfazComunComponent,
+    MenuHorizontalComponent,
+  
+    RegistroClienteComponent,
+        PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
+    FormsModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
