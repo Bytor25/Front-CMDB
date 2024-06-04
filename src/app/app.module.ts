@@ -19,12 +19,16 @@ import { MenuHorizontalComponent } from './menu-horizontal/menu-horizontal.compo
 
 import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegistroProveedoresComponent } from './registro-proveedores/registro-proveedores.component';
+import { ProveedoresComponent } from './proveedores/proveedores.component';
 
 const appRoutes: Routes = [
   { path: '', component: MenuHorizontalComponent },
   { path: 'clientes', component: ClientesComponent },
   {path: 'RegistrarCliente', component: RegistroClienteComponent},
-  {path: '404page', component: PageNotFoundComponent}
+  {path: '404page', component: PageNotFoundComponent}, {path: 'proveedores', component: ProveedoresComponent},
+  {path: 'RegistrarProveedor', component: RegistroProveedoresComponent}
+  
 ];
 
 @NgModule({
@@ -35,7 +39,9 @@ const appRoutes: Routes = [
     MenuHorizontalComponent,
   
     RegistroClienteComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        RegistroProveedoresComponent,
+        ProveedoresComponent
   ],
   imports: [
     BrowserModule,
