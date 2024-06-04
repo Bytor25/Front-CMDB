@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { cliente } from '../clases/cliente';
+import { ClienteService } from '../Servicios/cliente.service';
+import { Router } from '@angular/router';
 import axios from 'axios';
+import { FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -11,21 +15,27 @@ export class RegistroClienteComponent {
 
    visible: boolean = false;
 
+
+
   tiposDocumento: { value: string, label: string }[] = [
     { value: "cedula", label: "Cédula de ciudadanía" },
     { value: "tarjeta-identidad", label: "Tarjeta de identidad" },
     { value: "pasaporte", label: "Pasaporte" },
     { value: "certificado-nacimiento", label: "Certificado de nacimiento" },
   ];
-  persona: any = {
-    id: '',
-    tipoIdentificacion: '',
-    nombre: "",
-    apellido: "",
-    email: '',
-    telefono: '',
-  };
+
+
+
+  persona : cliente = new cliente();
+
+  mensaje: string = "";
+
+
+
   procesar (){
     return axios.post('',this.persona);
   };
+
+
+
 }

@@ -14,7 +14,7 @@
                 
                 <div class="card-body">
 
-                    <form (ngSubmit)="procesar()" #formularioCliente="ngForm">
+                    <form  #formularioCliente="ngForm">
             
                         <div class="mb-2">
 
@@ -22,7 +22,7 @@
                                 Número de identificación: *
                             </label>
             
-                            <input type="text" name="id" class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.id" required #id="ngModel">
+                            <input type="number" name="id"  class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.id" required #id="ngModel">
 
                             <div class="alert alert-danger mt-2" [hidden]="id.valid || id.pristine">
 
@@ -38,17 +38,17 @@
                               Tipo de documento: *
                             </label>
 
-                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipoIdentificacion" required #tipoDocumento="ngModel">
-
-                              <option value="">Seleccione una opción</option>
-                                <option value="" disabled hidden>tipo de identificación</option>
+                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipo_documento" required #tipoDocumento="ngModel">
+                                <option value="">Seleccione una opción</option>
                                 <option value="Cédula" >Cédula de Ciudadanía</option>
                                 <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
                                 <option value="Pasaporte">Pasaporte</option>
                                 <option value="NIT">NIT</option>
+
                               <span class="required">*</span>
 
                             </select>
+
 
                             <div class="alert alert-danger mt-2" [hidden]="tipoDocumento.valid || tipoDocumento.pristine">
 
@@ -80,7 +80,7 @@
                                 Apellidos: *
                             </label>
 
-                            <input type="text" name="apellido" class="form-control" placeholder="Ingrese los apellidos" [(ngModel)]="persona.apellido" required #apellido="ngModel">
+                            <input type="text" name="apellido" class="form-control" placeholder="Ingrese los apellidos" [(ngModel)]="persona.apellidos" required #apellido="ngModel">
 
                             <div class="alert alert-danger mt-2" [hidden]="apellido.valid || apellido.pristine">
 
@@ -159,4 +159,3 @@
     </body>
     </html>
   </section>
-
