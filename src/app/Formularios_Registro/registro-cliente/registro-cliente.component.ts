@@ -18,18 +18,14 @@ export class RegistroClienteComponent implements OnInit {
   
   constructor(private clienteservice: ClienteService, private router: Router ){}
 
-  navegarAClientes() {
-    this.router.navigate(['/principal/clientes']);
-  }
-    
-
   ngOnInit(): void {
   }
+
 
   create(): void {
     this.clienteservice.create(this.persona).subscribe(
       (response)=>{
-        alert("su registro a sido exitoso")
+        alert("su registro ha sido exitoso")
         this.router.navigate(['principal/clientes'])
       },
    (error) => {

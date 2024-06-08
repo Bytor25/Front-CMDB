@@ -22,7 +22,7 @@
                                 Número de identificación: *
                             </label>
             
-                            <input type="text" name="id" class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.numeroDocumento
+                            <input type="number" name="id" class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.numeroDocumento
                             " required #id="ngModel">
 
                             <div class="alert alert-danger mt-2" [hidden]="id.valid || id.pristine">
@@ -37,13 +37,21 @@
                             <label class="form-label">
                                 Tipo de documento: *
                             </label>
-                            <select id="tipoDocumento" aria-placeholder="seleccion una opción" name="tipoDocumento" [(ngModel)]="persona.tipoDocumento">
+                            <select id="tipoDocumento" aria-placeholder="seleccion una opción" name="tipoDocumento" [(ngModel)]="persona.tipoDocumento.identificador" #nombre="ngModel">
+
                                 <option value="" disabled selected>Seleccione una opción</option>
                                 <option value="1">Cédula de Ciudadanía</option>
                                 <option value="2">Tarjeta de Identidad</option>
                                 <option value="3">Pasaporte</option>
                                 <option value="4">NIT</option>
                             </select>
+
+                            
+                            <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">
+
+                                Este campo es obligatorio
+
+                            </div>
                         </div>
 
                         <div class="mb-2">
@@ -68,7 +76,7 @@
                                 Apellidos: *
                             </label>
 
-                            <input type="text" name="apellido" class="form-control" placeholder="Ingrese los apellidos" [(ngModel)]="persona.apellido" required #apellido="ngModel">
+                            <input type="text" name="apellido" class="form-control" placeholder="Ingrese los apellidos" [(ngModel)]="persona.apellidos" required #apellido="ngModel">
 
                             <div class="alert alert-danger mt-2" [hidden]="apellido.valid || apellido.pristine">
 
@@ -128,13 +136,15 @@
                           <p>Si acepta, perderá todo el proceso y volverá a la página de clientes.</p>
                       
                           <button class="boton-cancel-alert" (click)="visible=visible">
-                            <a class="boton-ventana-emergente" href="/clientes" aria-label="Perder proceso y volver a clientes">
+                            <a class="boton-ventana-emergente" href="principal/clientes">
                               Aceptar
                             </a>
                           </button>
                       
                           <button class="boton-cancel-alert" (click)="visible=!visible">
-                            Cancelar
+                            <a class="boton-ventana-emergente">
+                                Cancelar
+                              </a>
                           </button>
                         </span>
                       </div>

@@ -83,13 +83,13 @@
   font-family: "Ledger", sans-serif;
 
   justify-content: center;
-  padding: 10px 40px;
+  padding: 15px 24px;
   transition: background-color 0.5s ease;
   margin: 0 auto;
 }
 
 .boton-cancel-alert:hover{
-  padding: 10px 40px;
+  padding: 15px 24px;
   background-color: #B2B2B2;
   box-shadow: 12px 10px 10px 0 rgba(0, 0, 0, 0.80);
   color: black;
@@ -98,4 +98,5 @@
 .boton-ventana-emergente{
   color: white;
   text-decoration: none;
+  padding: 20px 30px;
 }

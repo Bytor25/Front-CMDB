@@ -20,7 +20,9 @@ import { Observable } from 'rxjs';
     }
   
     create(Cliente:cliente):Observable<cliente>{
+      console.log(Cliente)
       return this.http.post<cliente>(this.url,Cliente);
+
     }
 
     update(Cliente:cliente,id:string):Observable<cliente>{

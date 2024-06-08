@@ -3,7 +3,7 @@ export class cliente {
     numeroDocumento: string = '';
     tipoDocumento: tipoIdentificacion = new tipoIdentificacion;
     nombre: string = '';
-    apellido: string = '';
+    apellidos: string = '';
     correo: string = '';
     telefono: number | null = null;
     estado: boolean = true
