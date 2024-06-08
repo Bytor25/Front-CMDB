@@ -1,11 +1,12 @@
 export class cliente {
-    id: string = '';
-    numero_documento: string = '';
-    tipo_documento: tipoIdentificacion = new tipoIdentificacion;
+    identificador: string = '';
+    numeroDocumento: string = '';
+    tipoDocumento: tipoIdentificacion = new tipoIdentificacion;
     nombre: string = '';
-    apellidos: string = '';
-    email: string = '';
+    apellido: string = '';
+    correo: string = '';
     telefono: number | null = null;
+    estado: boolean = true
 }
 export class tipoIdentificacion{
     identificador: string = '';

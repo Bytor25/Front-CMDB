@@ -14,7 +14,7 @@
                 
                 <div class="card-body">
 
-                    <form  #formularioCliente="ngForm">
+                    <form #formularioCliente="ngForm">
             
                         <div class="mb-2">
 
@@ -22,7 +22,8 @@
                                 Número de identificación: *
                             </label>
             
-                            <input type="number" name="id"  class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.id" required #id="ngModel">
+                            <input type="text" name="id" class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.numeroDocumento
+                            " required #id="ngModel">
 
                             <div class="alert alert-danger mt-2" [hidden]="id.valid || id.pristine">
 
@@ -33,29 +34,16 @@
                         </div>
 
                         <div class="mb-2">
-
                             <label class="form-label">
-                              Tipo de documento: *
+                                Tipo de documento: *
                             </label>
-
-                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipo_documento" required #tipoDocumento="ngModel">
-                                <option value="">Seleccione una opción</option>
-                                <option value="Cédula" >Cédula de Ciudadanía</option>
-                                <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-                                <option value="Pasaporte">Pasaporte</option>
-                                <option value="NIT">NIT</option>
-
-                              <span class="required">*</span>
-
+                            <select id="tipoDocumento" aria-placeholder="seleccion una opción" name="tipoDocumento" [(ngModel)]="persona.tipoDocumento">
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="1">Cédula de Ciudadanía</option>
+                                <option value="2">Tarjeta de Identidad</option>
+                                <option value="3">Pasaporte</option>
+                                <option value="4">NIT</option>
                             </select>
-
-
-                            <div class="alert alert-danger mt-2" [hidden]="tipoDocumento.valid || tipoDocumento.pristine">
-
-                                Este campo es obligatorio
-
-                            </div>
-
                         </div>
 
                         <div class="mb-2">
@@ -80,7 +68,7 @@
                                 Apellidos: *
                             </label>
 
-                            <input type="text" name="apellido" class="form-control" placeholder="Ingrese los apellidos" [(ngModel)]="persona.apellidos" required #apellido="ngModel">
+                            <input type="text" name="apellido" class="form-control" placeholder="Ingrese los apellidos" [(ngModel)]="persona.apellido" required #apellido="ngModel">
 
                             <div class="alert alert-danger mt-2" [hidden]="apellido.valid || apellido.pristine">
 
@@ -96,7 +84,7 @@
                                 Email: *
                             </label>
 
-                            <input type="email" name="correoElectronico" class="form-control" placeholder="Ingrese un Email" [(ngModel)]="persona.email" required #correoElectronico="ngModel">
+                            <input type="email" name="correoElectronico" class="form-control" placeholder="Ingrese un Email" [(ngModel)]="persona.correo" required #correoElectronico="ngModel">
 
                             <div class="alert alert-danger mt-2" [hidden]="correoElectronico.valid || correoElectronico.pristine">
                                 Este campo es obligatorio
@@ -122,7 +110,7 @@
 
                         <nav class="botones-registro">
 
-                            <button class="opciones-registro" [disabled]="formularioCliente.invalid">
+                            <button class="opciones-registro" [disabled]="formularioCliente.invalid" (click)="create()">
                                 Registrar
                             </button>
                             

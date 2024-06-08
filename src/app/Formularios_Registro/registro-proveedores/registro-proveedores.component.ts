@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ClienteService } from '../Servicios/cliente.service';
+import { ClienteService } from '../../Servicios/cliente.service';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { FormControl, Validators } from '@angular/forms';
-import { proveedor } from '../clases/proveedor';
+import { proveedor } from '../../clases/proveedor';
 
 @Component({
   selector: 'app-registro-proveedores',

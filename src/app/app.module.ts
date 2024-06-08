@@ -3,33 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule}  from '@ng-select/ng-select';
-import axios from 'axios';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
-
-
 
 import { ClientesComponent } from './clientes/clientes.component';
 
 import { InterfazComunComponent } from './interfaz-comun/interfaz-comun.component';
 import { MenuHorizontalComponent } from './menu-horizontal/menu-horizontal.component';
 
-import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
+import { RegistroClienteComponent } from './Formularios_Registro/registro-cliente/registro-cliente.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { RegistroProveedoresComponent } from './registro-proveedores/registro-proveedores.component';
+import { RegistroProveedoresComponent } from './Formularios_Registro/registro-proveedores/registro-proveedores.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 
 const appRoutes: Routes = [
-  { path: '', component: MenuHorizontalComponent },
-  { path: 'clientes', component: ClientesComponent },
-  {path: 'RegistrarCliente', component: RegistroClienteComponent},
-  {path: '404page', component: PageNotFoundComponent}, {path: 'proveedores', component: ProveedoresComponent},
-  {path: 'RegistrarProveedor', component: RegistroProveedoresComponent}
+  { path: 'principal', component: MenuHorizontalComponent },
+  { path: 'principal/clientes', component: ClientesComponent },
+  {path: 'principal/clientes/RegistrarCliente', component: RegistroClienteComponent},
+  {path: '404page', component: PageNotFoundComponent}, 
+  {path: 'principal/proveedores', component: ProveedoresComponent},
+  {path: 'principal/proveedores/RegistrarProveedor', component: RegistroProveedoresComponent}    
   
-];
+];    
 
 @NgModule({
   declarations: [
@@ -49,8 +46,9 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     NgSelectModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 

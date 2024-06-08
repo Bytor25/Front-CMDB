@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient} from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { cliente } from "../clases/cliente";
 import { Observable } from 'rxjs';
+
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs';
 
     id:string = '';
     
-    constructor(private http:HttpClient){}
+    constructor(private http:HttpClient){ }
 
     getCredenciales(Cliente:cliente):Observable<{datos:[cliente],mensajes:[]}>{
       return this.http.post<{datos:[cliente],mensajes:[]}>(this.url+'/consultar',Cliente)
@@ -24,10 +25,6 @@ import { Observable } from 'rxjs';
 
     update(Cliente:cliente,id:string):Observable<cliente>{
       return this.http.put<cliente>(this.url+'/'+id,Cliente);
-    }
-
-    getUuid(idL:string): void{
-      this.id = idL
     }
 
     getCliente(Cliente:cliente):Observable<{datos:[cliente],mensajes:[]}>{
