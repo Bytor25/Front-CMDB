@@ -17,10 +17,14 @@ import { RegistroClienteComponent } from './Formularios_Registro/registro-client
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistroProveedoresComponent } from './Formularios_Registro/registro-proveedores/registro-proveedores.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { LoginPrincipalComponent } from './login-principal/login-principal.component';
 
 const appRoutes: Routes = [
-  { path: 'principal', component: MenuHorizontalComponent },
-  { path: 'principal/clientes', component: ClientesComponent },
+  {path: '', redirectTo:'login', pathMatch:'full'},
+  {path: 'principal', component: InterfazComunComponent},
+  {path: 'login', component: LoginPrincipalComponent},
+  {path: 'principal/menu', component: MenuHorizontalComponent },
+  {path: 'principal/clientes', component: ClientesComponent },
   {path: 'principal/clientes/RegistrarCliente', component: RegistroClienteComponent},
   {path: '404page', component: PageNotFoundComponent}, 
   {path: 'principal/proveedores', component: ProveedoresComponent},
@@ -34,11 +38,11 @@ const appRoutes: Routes = [
     ClientesComponent,
     InterfazComunComponent,
     MenuHorizontalComponent,
-  
     RegistroClienteComponent,
-        PageNotFoundComponent,
-        RegistroProveedoresComponent,
-        ProveedoresComponent
+    PageNotFoundComponent,
+    RegistroProveedoresComponent,
+    ProveedoresComponent,
+    LoginPrincipalComponent,
   ],
   imports: [
     BrowserModule,
