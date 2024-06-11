@@ -2,7 +2,7 @@ import { HttpClient} from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { cliente } from "../clases/cliente";
 import { Observable } from 'rxjs';
-
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -15,10 +15,6 @@ import { Observable } from 'rxjs';
     
     constructor(private http:HttpClient){ }
 
-    getCredenciales(Cliente:cliente):Observable<{datos:[cliente],mensajes:[]}>{
-      return this.http.post<{datos:[cliente],mensajes:[]}>(this.url+'/consultar',Cliente)
-    }
-  
     create(Cliente:any):Observable<any>{
 
       return this.http.post<cliente>(this.url,Cliente);
@@ -29,8 +25,10 @@ import { Observable } from 'rxjs';
       return this.http.put<cliente>(this.url+'/'+id,Cliente);
     }
 
-    getCliente(Cliente:cliente):Observable<{datos:[cliente],mensajes:[]}>{
-      return this.http.post<{datos:[cliente],mensajes:[]}>(this.url+'/consultar',Cliente);
+    getCliente(): Observable<any> {
+      return this.http.get<{ datos: cliente[] }>(this.url).pipe(
+        map(response => response.datos)
+      );
     }
 
   }
