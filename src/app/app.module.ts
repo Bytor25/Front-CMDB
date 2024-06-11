@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistroProveedoresComponent } from './Formularios_Registro/registro-proveedores/registro-proveedores.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { LoginPrincipalComponent } from './login-principal/login-principal.component';
+import { LoginService } from './Servicios/login.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     RegistroProveedoresComponent,
     ProveedoresComponent,
-    LoginPrincipalComponent,
+    LoginPrincipalComponent
   ],
   imports: [
     BrowserModule,

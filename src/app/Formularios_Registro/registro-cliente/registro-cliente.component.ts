@@ -21,18 +21,15 @@ export class RegistroClienteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   create(): void {
     this.clienteservice.create(this.persona).subscribe(
-      (response)=>{
-        alert("su registro ha sido exitoso")
+      (resp)=>{
+        alert(resp.mensajes[0]);
         this.router.navigate(['principal/clientes'])
       },
    (error) => {
-      if (error.error && error.error.mensajes && error.error.mensajes.length > 0) {
-      alert(error.error.mensajes[0])
-      this.mensaje= error.error.mensajes[0];
-    }
+    console.error(error);
+    alert(error.error.mensajes[0]);
   }
     );
   }

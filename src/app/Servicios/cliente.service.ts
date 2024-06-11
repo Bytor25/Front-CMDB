@@ -19,8 +19,8 @@ import { Observable } from 'rxjs';
       return this.http.post<{datos:[cliente],mensajes:[]}>(this.url+'/consultar',Cliente)
     }
   
-    create(Cliente:cliente):Observable<cliente>{
-      console.log(Cliente)
+    create(Cliente:any):Observable<any>{
+
       return this.http.post<cliente>(this.url,Cliente);
 
     }

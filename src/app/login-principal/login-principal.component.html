@@ -46,7 +46,7 @@
                           </div>
                           
                         <nav class="botones-login">
-                            <button class="opciones-login" [disabled]="formularioLogin.invalid">
+                            <button class="opciones-login" [disabled]="formularioLogin.invalid"(click)="autenticarLogin()">
                                 Ingresar
                             </button>
                             <button class="opciones-login" (click)="refreshPage()">
