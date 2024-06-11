@@ -21,8 +21,15 @@ import { map } from 'rxjs/operators';
 
     }
 
-    update(Cliente:cliente,id:string):Observable<cliente>{
-      return this.http.put<cliente>(this.url+'/'+id,Cliente);
+    update(Cliente:cliente):Observable<any>{
+      return this.http.post<cliente>(this.url,Cliente);
+    }
+
+    consultarPorId(numeroDocumento: string): Observable<any> {
+      const url = `${this.url}/${numeroDocumento}`;
+      return this.http.get<{datos: cliente}>(this.url).pipe(
+        map(response => response.datos)
+      );
     }
 
     getCliente(): Observable<any> {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { proveedor } from '../../clases/proveedor';
 
 @Component({
   selector: 'app-actualizacion-proveedor',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ActualizacionProveedorComponent {
 
+  visible: boolean = false;
+
+  persona : proveedor = new proveedor();
 }

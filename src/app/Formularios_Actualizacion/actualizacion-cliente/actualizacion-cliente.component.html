@@ -1,1 +1,74 @@
-<p>actualizacion-cliente works!</p>
+<section>
+    <html lang="es">
+    <head>
+      <title>Registro de clientes</title>
+    </head>
+  
+    <body>
+      <nav class="formulario">
+        <div class="card">
+          <div class="card-body">
+            <form #formularioCliente="ngForm" (ngSubmit)="actualizarCliente()">
+              <div class="mb-2">
+                <label class="form-label">Número de identificación: *</label>
+                <input type="number" name="numeroDocumento" class="form-control" placeholder="Ingrese el número de identificación" [(ngModel)]="persona.numeroDocumento" required #numeroDocumento="ngModel" readonly>
+                <div class="alert alert-danger mt-2" [hidden]="numeroDocumento.valid || numeroDocumento.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <div class="mb-2">
+                <label class="form-label">Tipo de documento: *</label>
+                <select id="tipoDocumento" name="tipoDocumento" class="form-control" [(ngModel)]="persona.tipoDocumento" required #tipoDocumento="ngModel">
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="1">Cédula de Ciudadanía</option>
+                    <option value="2">Tarjeta de Identidad</option>
+                    <option value="3">Pasaporte</option>
+                    <option value="4">NIT</option>
+                </select>
+                <div class="alert alert-danger mt-2" [hidden]="tipoDocumento.valid || tipoDocumento.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <div class="mb-2">
+                <label class="form-label">Nombre/s: *</label>
+                <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre" [(ngModel)]="persona.nombre" required #nombre="ngModel">
+                <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <div class="mb-2">
+                <label class="form-label">Apellidos: *</label>
+                <input type="text" name="apellidos" class="form-control" placeholder="Ingrese los apellidos" [(ngModel)]="persona.apellidos" required #apellidos="ngModel">
+                <div class="alert alert-danger mt-2" [hidden]="apellidos.valid || apellidos.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <div class="mb-2">
+                <label class="form-label">Email: *</label>
+                <input type="email" name="correo" class="form-control" placeholder="Ingrese un Email" [(ngModel)]="persona.correo" required #correo="ngModel">
+                <div class="alert alert-danger mt-2" [hidden]="correo.valid || correo.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <div class="mb-2">
+                <label class="form-label">Teléfono: *</label>
+                <input type="number" name="telefono" class="form-control" placeholder="Ingrese un número de teléfono" [(ngModel)]="persona.telefono" required #telefono="ngModel">
+                <div class="alert alert-danger mt-2" [hidden]="telefono.valid || telefono.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <nav class="botones-registro">
+                <button type="submit" class="opciones-registro" [disabled]="formularioCliente.invalid">Actualizar</button>
+                <button type="button" class="opciones-registro" (click)="visible=!visible">Cancelar</button>
+              </nav>
+            </form>
+  
+            <div class="cancel-alert" role="alert" [hidden]="!visible">
+              <span>
+                <h2>¿Desea cancelar la transacción?</h2>
+                <p>Si acepta, perderá todo el proceso y volverá a la página de clientes.</p>
+                <button class="boton-cancel-alert" (click)="navigateToClientes()">Aceptar</button>
+                <button class="boton-cancel-alert" (click)="visible=!visible">Cancelar</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </body>
+    </html>
+  </section>
+  
