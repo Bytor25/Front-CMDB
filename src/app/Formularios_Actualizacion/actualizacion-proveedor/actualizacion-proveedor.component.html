@@ -22,7 +22,7 @@
                                 Número de identificación: *
                             </label>
             
-                            <input type="number" name="id"  class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.numero_documento" disabled="">
+                            <input type="number" name="id"  class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.numeroDocumento" disabled="">
 
                             <button class="boton-consultar">Consultar</button>
 
@@ -34,7 +34,7 @@
                               Tipo de documento: *
                             </label>
 
-                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipo_documento" required #tipoDocumento="ngModel">
+                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipoDocumento" required #tipoDocumento="ngModel">
                                 <option value="">Seleccione una opción</option>
                                 <option value="Cédula" >Cédula de Ciudadanía</option>
                                 <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>

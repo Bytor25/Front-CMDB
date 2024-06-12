@@ -1,7 +1,6 @@
 export class proveedor {
-
-    numero_documento: number | null = null;
-    tipo_documento: tipoIdentificacion = new tipoIdentificacion;
+    numeroDocumento: number | null = null;
+    tipoDocumento: tipoIdentificacion = new tipoIdentificacion;
     nombre: string = '';
     telefono: number | null = null;
 }

@@ -1,8 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ClienteService } from '../../Servicios/cliente.service';
 import { Router } from '@angular/router';
-import axios from 'axios';
-import { FormControl, Validators } from '@angular/forms';
 import { proveedor } from '../../clases/proveedor';
 import { ProveedorService } from '../../Servicios/proveedor.service';
 
@@ -18,13 +15,15 @@ export class RegistroProveedoresComponent {
   mensaje: string = "";
 
   
-  constructor(private proveedorservice: ProveedorService, private router: Router ){}
+  constructor(private proveedorService: ProveedorService, private router: Router ){}
 
   ngOnInit(): void {
   }
 
   create(): void {
-    this.proveedorservice.create(this.persona).subscribe(
+
+    console.log(this.persona)
+    this.proveedorService.create(this.persona).subscribe(
       (resp)=>{
         alert(resp.mensajes[0]);
         this.router.navigate(['principal/proveedores'])
