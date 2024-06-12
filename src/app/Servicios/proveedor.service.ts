@@ -1,33 +1,54 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { proveedor } from "../clases/proveedor";
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
   })
 
   export class ProveedorService {
-    private url: string = "http://localhost:8080/api/v1/proveedor";
+    private url: string = "http://localhost:8080/api/v1/proveedores";
 
-    id:string = '';
-    
-    constructor(private http:HttpClient){}
+  constructor(private http: HttpClient) { }
 
-    getCredenciales(Proveedor:proveedor):Observable<{datos:[proveedor],mensajes:[]}>{
-      return this.http.post<{datos:[proveedor],mensajes:[]}>(this.url+'/consultar',Proveedor)
-    }
-  
-    create(Proveedor:proveedor):Observable<proveedor>{
-      return this.http.post<proveedor>(this.url,Proveedor);
-    }
+  create(Proveedor: any): Observable<any> {
+    return this.http.post<proveedor>(this.url, Proveedor);
+  }
 
-    update(Proveedor:proveedor,id:string):Observable<proveedor>{
-      return this.http.put<proveedor>(this.url+'/'+id,Proveedor);
-    }
+  update(numeroDocumento: String, Proveedor: any): Observable<any> {
+    return this.http.put<void>(`${this.url}/${numeroDocumento}`, Proveedor).pipe(
+      catchError(this.handleError)
+    );
+  }
 
-    getProveedor(Proveedor:proveedor):Observable<{datos:[proveedor],mensajes:[]}>{
-      return this.http.post<{datos:[proveedor],mensajes:[]}>(this.url+'/consultar',Proveedor);
+  consultarPorId(numeroDocumento: string): Observable<proveedor> {
+    return this.http.get<{ datos: proveedor[] }>(`${this.url}/${numeroDocumento}`).pipe(
+      map(response => response.datos[0]),
+      catchError(this.handleError)
+    );
+  }
+
+  getProveedor(): Observable<any> {
+    return this.http.get<{ datos: proveedor[] }>(this.url).pipe(
+      map(response => response.datos)
+    );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'An unknown error occurred!';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      if (error.error && error.error.mensajes) {
+        errorMessage = error.error.mensajes.join(', ');
+      } else {
+        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      }
     }
+    return throwError({ mensajes: [errorMessage] });
+  }
+
 
   }

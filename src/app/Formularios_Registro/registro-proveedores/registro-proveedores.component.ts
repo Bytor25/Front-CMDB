@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import axios from 'axios';
 import { FormControl, Validators } from '@angular/forms';
 import { proveedor } from '../../clases/proveedor';
+import { ProveedorService } from '../../Servicios/proveedor.service';
 
 @Component({
   selector: 'app-registro-proveedores',
@@ -12,11 +13,28 @@ import { proveedor } from '../../clases/proveedor';
 })
 export class RegistroProveedoresComponent {
 
-    visible: boolean = false;
+  visible: boolean = false;
+  persona: proveedor = new proveedor();
+  mensaje: string = "";
 
+  
+  constructor(private proveedorservice: ProveedorService, private router: Router ){}
 
+  ngOnInit(): void {
+  }
 
-    persona : proveedor = new proveedor();
+  create(): void {
+    this.proveedorservice.create(this.persona).subscribe(
+      (resp)=>{
+        alert(resp.mensajes[0]);
+        this.router.navigate(['principal/proveedores'])
+      },
+   (error) => {
+    console.error(error);
+    alert(error.error.mensajes[0]);
+  }
+    );
+  }
 
   
 
