@@ -1,14 +1,13 @@
-
-
 .card {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 1200px;
+  margin: 10px auto;
+  display: flex; /* Agregado para centrar elementos dentro de la tarjeta */
   justify-content: center;
   align-items: center;
-  margin: 10px auto 0;
 }
 
 .card-body {
@@ -17,15 +16,11 @@
 
 .table {
   width: 100%;
-  max-width: 1200px; 
-  min-width: 600px;
   border-collapse: collapse;
   margin: 0 auto;
   text-align: left;
-  table-layout: fixed; 
+  table-layout: fixed;
 }
-
-
 
 .thead-dark th {
   background-color: #525252;
@@ -51,20 +46,22 @@ tbody tr:hover {
   color: white;
 }
 
-.busqueda{
+.busqueda {
   margin: 10px;
-  width: 100%;
-  max-width: 300px;
+  max-width: 300px; /* Manteniendo la anchura máxima */
 }
 
-.home{
-  width: 50%;
+.home {
   max-width: 70px;
-  height: 50%;
   max-height: 70px;
   position: absolute;
   left: 10px;
   top: 10px;
 }
 
-  
+.funciones_Consultar:hover{
+  background-color: #B2B2B2;
+  box-shadow: 6px 5px 5px 0 rgba(0, 0, 0, 0.80);
+  color: black;
+
+}

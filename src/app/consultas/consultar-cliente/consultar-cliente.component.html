@@ -1,62 +1,50 @@
 <section>
   <html lang="es">
   <head>
-
     <title>Consulta de clientes</title>
-
   </head>
-
   <body>
-
-      <nav class="consulta">
-
-        <a href="principal/menu"><img src="assets/Imagenes/house-solid.svg" alt="icono home" class="home"></a>
-
-
-        <div class="mb-2">
-          <label class="busqueda">
-
-            <input type="number" placeholder="Ingrese el número de identificación" class="form-control" [(ngModel)] = "personaBusqueda.numeroDocumento">
-
-          </label>
-
+    <nav class="consulta">
+      <a href="principal/menu">
+        <img src="assets/Imagenes/house-solid.svg" alt="icono home" class="home">
+      </a>
+      <div class="mb-2">
+        <label class="busqueda">
+          <input type="number" placeholder="Ingrese el número de identificación" class="form-control" [(ngModel)]="personaBusqueda.numeroDocumento">
+          <button (click)="buscarCliente()" class="funciones_Consultar">Buscar</button>
+        </label>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Identificación</th>
+                <th scope="col">Tipo Identificación</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Editar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let persona of personas">
+                <th scope="row">{{ persona?.numeroDocumento }}</th>
+                <td>{{ persona?.tipoDocumento?.nombre }}</td>
+                <td>{{ persona?.nombre }}</td>
+                <td>{{ persona?.apellidos }}</td>
+                <td>{{ persona?.correo }}</td>
+                <td>{{ persona?.telefono }}</td>
+                <td>
+                  <button type="button" name="editar" class="funciones_Consultar" (click)="editarCliente(persona.numeroDocumento)">Editar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-          <div class="card">
-              
-              <div class="card-body">
-
-                <table class="table">
-
-                  <thead class="thead-dark">
-                    <tr>
-                      <th scope="col">Identificación</th>
-                      <th scope="col">Tipo Identificación</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Apellidos</th>
-                      <th scope="col">Correo</th>
-                      <th scope="col">Teléfono</th>
-                      <th scope="col">Editar</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let persona of personas">
-                      <th scope="row">{{ persona.numeroDocumento }}</th>
-                      <td>{{ persona.tipoDocumento.nombre }}</td>
-                      <td>{{ persona.nombre }}</td>
-                      <td>{{ persona.apellidos }}</td>
-                      <td>{{ persona.correo }}</td>
-                      <td>{{ persona.telefono }}</td>
-                      <td><button type="button" name="editar" class="boton-editar" (click)="editarCliente(persona.numeroDocumento)">Editar</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-          
-              </div>
-          </div>
-          
-      </nav>
+      </div>
+    </nav>
   </body>
   </html>
 </section>
-
