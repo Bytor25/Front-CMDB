@@ -38,7 +38,7 @@ export class ActualizacionClienteComponent implements OnInit {
     if (form.valid) {
       this.clienteService.update(this.persona.numeroDocumento, this.persona).subscribe(
         response => {
-          alert(response.message[0])
+          alert(response.mensajes[0])
           this.router.navigate(['principal/clientes']);
         },
         error => {
