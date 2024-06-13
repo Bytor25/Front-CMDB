@@ -22,7 +22,7 @@ export class ClienteService {
 
   consultarPorId(numeroDocumento: string): Observable<any> {
     return this.http.get<{ datos: cliente[] }>(`${this.url}/${numeroDocumento}`).pipe(
-      map(response => response.datos[0]),
+      map(response => response.datos),
     );
   }
 

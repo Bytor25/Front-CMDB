@@ -33,15 +33,10 @@ export class ConsultarClienteComponent implements OnInit {
     const numeroDocumento = this.personaBusqueda.numeroDocumento;
     if (numeroDocumento) {
       this.clienteService.consultarPorId(numeroDocumento).subscribe(
+
         (response) => {
-          console.log('Cliente fetched successfully:', response);
-          if (response) {
-            this.personas = [response]; // Asegúrate de que siempre es un array
-            console.log('Personas array:', this.personas);
-          } else {
-            console.log('No se encontró el cliente con el número de documento especificado.');
-            this.personas = [];
-          }
+
+          this.personas = response;
         },
         (error) => {
           console.error('Error fetching cliente:', error);
