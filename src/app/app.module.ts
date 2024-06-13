@@ -33,7 +33,7 @@ const appRoutes: Routes = [
 
   {path: 'principal/clientes', component: ClientesComponent },
   {path: 'clientes/RegistrarCliente', component: RegistroClienteComponent},
-  {path: 'clientes/ActualizarCliente/:id', component: ActualizacionClienteComponent},
+  {path: 'clientes/ActualizarCliente/:id/:tipoDocumento', component: ActualizacionClienteComponent},
   {path: 'clientes/ConsultarCliente', component: ConsultarClienteComponent},
 
   {path: 'principal/proveedores', component: ProveedoresComponent},

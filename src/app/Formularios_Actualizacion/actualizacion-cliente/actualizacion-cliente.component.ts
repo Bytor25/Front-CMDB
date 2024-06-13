@@ -21,8 +21,10 @@ export class ActualizacionClienteComponent implements OnInit {
 
   ngOnInit(): void {
     const numeroDocumento = this.route.snapshot.paramMap.get('id');
+    const tipoDocumento = this.route.snapshot.paramMap.get('tipoDocumento');
+
     if (numeroDocumento) {
-      this.clienteService.consultarPorId(numeroDocumento).subscribe(
+      this.clienteService.consultarPorIdTipoDocumento(numeroDocumento,tipoDocumento).subscribe(
         (data: cliente) => {
           this.persona = data;
         },

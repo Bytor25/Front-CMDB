@@ -38,7 +38,7 @@
                               Tipo de documento: *
                             </label>
 
-                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipoDocumento.identificador">
+                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipoDocumento.identificador" required #name="ngModel">
                                 <option value="" disabled selected>Seleccione una opción</option>
                                 <option value="1" >Cédula de Ciudadanía</option>
                                 <option value="2">Tarjeta de Identidad</option>

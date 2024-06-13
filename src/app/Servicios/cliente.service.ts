@@ -32,6 +32,12 @@ export class ClienteService {
     );
   }
 
+  consultarPorIdTipoDocumento(numeroDocumento: String, tipoDocumento: any): Observable<any> {
+    return this.http.get<{datos: cliente[]}>(`${this.url}/${numeroDocumento}/${tipoDocumento}`).pipe(
+      map(response => response.datos[0]),
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
     if (error.error instanceof ErrorEvent) {

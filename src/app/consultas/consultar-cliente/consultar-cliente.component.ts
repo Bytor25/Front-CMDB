@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cliente } from '../../clases/cliente';
+import { cliente, tipoIdentificacion } from '../../clases/cliente';
 import { ClienteService } from '../../Servicios/cliente.service';
 import { Router } from '@angular/router';
 
@@ -22,7 +22,6 @@ export class ConsultarClienteComponent implements OnInit {
   getClientes(): void {
     this.clienteService.getCliente().subscribe(
       (response) => {
-        console.log('Clientes fetched successfully:', response);
         this.personas = response;
       },
       (error) => console.error('Error fetching clientes:', error)
@@ -35,7 +34,6 @@ export class ConsultarClienteComponent implements OnInit {
       this.clienteService.consultarPorId(numeroDocumento).subscribe(
 
         (response) => {
-
           this.personas = response;
         },
         (error) => {
@@ -48,11 +46,9 @@ export class ConsultarClienteComponent implements OnInit {
     }
   }
 
-  editarCliente(numeroDocumento: string): void {
-    if (numeroDocumento) {
-      this.router.navigate(['clientes/ActualizarCliente', numeroDocumento]);
-    } else {
-      console.error('Número de documento es indefinido');
-    }
+  editarCliente(numeroDocumento: string, tipoDocumento: string): void {
+    if (numeroDocumento && tipoDocumento) {
+      this.router.navigate(['clientes/ActualizarCliente', numeroDocumento, tipoDocumento]);
+    } 
   }
 }

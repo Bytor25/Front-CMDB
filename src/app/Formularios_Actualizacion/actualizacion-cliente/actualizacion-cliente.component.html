@@ -53,7 +53,7 @@
 
             <nav class="botones-registro">
               <button type="submit" class="opciones-registro" [disabled]="formularioCliente.invalid" (click)="onSubmit(formularioCliente)">Actualizar</button>
-              <button type="button" class="opciones-registro" (click)="visible=!visible">Cancelar</button>
+              <button type="button" class="opciones-registro" (click)="visible=!visible" (click)="navigateToClientes()">Cancelar</button>
             </nav>
           </form>
 
