@@ -37,7 +37,7 @@
                             <label class="form-label">
                                 Tipo de documento: *
                             </label>
-                            <select id="tipoDocumento" aria-placeholder="seleccion una opción" name="tipoDocumento" [(ngModel)]="persona.tipoDocumento.identificador" #nombre="ngModel">
+                            <select id="tipoDocumento" aria-placeholder="seleccion una opción" name="tipoDocumento" [(ngModel)]="persona.tipoDocumento.identificador" >
 
                                 <option value="" disabled selected>Seleccione una opción</option>
                                 <option value="1">Cédula de Ciudadanía</option>
@@ -47,11 +47,6 @@
                             </select>
 
                             
-                            <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">
-
-                                Este campo es obligatorio
-
-                            </div>
                         </div>
 
                         <div class="mb-2">

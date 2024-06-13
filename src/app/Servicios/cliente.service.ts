@@ -17,15 +17,12 @@ export class ClienteService {
   }
 
   update(numeroDocumento: String, Cliente: any): Observable<any> {
-    return this.http.put<void>(`${this.url}/${numeroDocumento}`, Cliente).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.put<void>(`${this.url}/${numeroDocumento}`, Cliente)
   }
 
-  consultarPorId(numeroDocumento: string): Observable<cliente> {
+  consultarPorId(numeroDocumento: string): Observable<any> {
     return this.http.get<{ datos: cliente[] }>(`${this.url}/${numeroDocumento}`).pipe(
       map(response => response.datos[0]),
-      catchError(this.handleError)
     );
   }
 

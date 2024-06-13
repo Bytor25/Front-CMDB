@@ -25,7 +25,6 @@ export class ActualizacionClienteComponent implements OnInit {
       this.clienteService.consultarPorId(numeroDocumento).subscribe(
         (data: cliente) => {
           this.persona = data;
-          console.log(this.persona);
         },
         (error) => {
           alert(error.error.mensajes[0]);

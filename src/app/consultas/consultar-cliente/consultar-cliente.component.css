@@ -48,7 +48,8 @@ tbody tr:hover {
 
 .busqueda {
   margin: 10px;
-  max-width: 300px; /* Manteniendo la anchura máxima */
+  width: 100%;
+  max-width: 290px; 
 }
 
 .home {

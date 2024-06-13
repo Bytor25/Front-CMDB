@@ -38,8 +38,8 @@
                               Tipo de documento: *
                             </label>
 
-                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipoDocumento.identificador" required #tipoDocumento="ngModel">
-                                <option value="">Seleccione una opción</option>
+                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipoDocumento.identificador">
+                                <option value="" disabled selected>Seleccione una opción</option>
                                 <option value="1" >Cédula de Ciudadanía</option>
                                 <option value="2">Tarjeta de Identidad</option>
                                 <option value="3">Pasaporte</option>
@@ -48,13 +48,6 @@
                               <span class="required">*</span>
 
                             </select>
-
-
-                            <div class="alert alert-danger mt-2" [hidden]="tipoDocumento.valid || tipoDocumento.pristine">
-
-                                Este campo es obligatorio
-
-                            </div>
 
                         </div>
 
