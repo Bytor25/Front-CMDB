@@ -1,127 +1,63 @@
 <section>
     <html lang="es">
     <head>
-
-      <title>Registro de proveedores</title>
-
+      <title>Actualizar Cliente</title>
     </head>
-
+  
     <body>
+      <nav class="formulario">
+        <div class="card">
+          <div class="card-body">
+            <form #formularioCliente="ngForm" >
+              <div class="mb-2">
+                <label class="form-label">Número de identificación: *</label>
+                <input type="number" name="numeroDocumento" class="form-control" placeholder="Ingrese el número de identificación" [(ngModel)]="persona.numeroDocumento" required #numeroDocumento="ngModel" readonly>
+                <div class="alert alert-danger mt-2" [hidden]="numeroDocumento.valid || numeroDocumento.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <div class="mb-2">
+                <label class="form-label">Tipo de documento: *</label>
+                <select id="tipoDocumento" name="tipoDocumento" class="form-control" [(ngModel)]="persona.tipoDocumento.identificador" required #tipoDocumento="ngModel">
+                    <option value="" disabled>Seleccione una opción</option>
+                    <option value="1">Cédula de Ciudadanía</option>
+                    <option value="2">Tarjeta de Identidad</option>
+                    <option value="3">Pasaporte</option>
+                    <option value="4">NIT</option>
+                </select>
+                <div class="alert alert-danger mt-2" [hidden]="tipoDocumento.valid || tipoDocumento.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <div class="mb-2">
+                <label class="form-label">Nombre/s: *</label>
+                <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre" [(ngModel)]="persona.nombre" required #nombre="ngModel">
+                <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">Este campo es obligatorio</div>
+              </div>
 
-        <nav class="formulario">
-
-            <div class="card">
-                
-                <div class="card-body">
-
-                    <form  #formularioProveedor="ngForm">
-            
-                        <div class="mb-2">
-
-                            <label class="form-label">
-                                Número de identificación: *
-                            </label>
-            
-                            <input type="number" name="id"  class="form-control" placeholder="Ingrese el número de identificaión" [(ngModel)]="persona.numeroDocumento" disabled="">
-
-                            <button class="boton-consultar">Consultar</button>
-
-                        </div>
-
-                        <div class="mb-2">
-
-                            <label class="form-label">
-                              Tipo de documento: *
-                            </label>
-
-                            <select id="tipoDocumento" name="tipoDocumento" placeholder="Seleccione un tipo de documento" [(ngModel)]="persona.tipoDocumento" required #tipoDocumento="ngModel">
-                                <option value="">Seleccione una opción</option>
-                                <option value="Cédula" >Cédula de Ciudadanía</option>
-                                <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-                                <option value="Pasaporte">Pasaporte</option>
-                                <option value="NIT">NIT</option>
-
-                              <span class="required">*</span>
-
-                            </select>
-
-
-                            <div class="alert alert-danger mt-2" [hidden]="tipoDocumento.valid || tipoDocumento.pristine">
-
-                                Este campo es obligatorio
-
-                            </div>
-
-                        </div>
-
-                        <div class="mb-2">
-
-                            <label class="form-label">
-                                Nombre/s: *
-                            </label>
-            
-                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese el nombre nombre" [(ngModel)]="persona.nombre" required #nombre="ngModel">
-
-                            <div class="alert alert-danger mt-2" [hidden]="nombre.valid || nombre.pristine">
-
-                                Este campo es obligatorio
-
-                            </div>
-
-                        </div>
-
-                        <div class="mb-2">
-                            
-                            <label class="form-label">
-                                Teléfono: *
-                            </label>
-
-                            <input type="number" name="telefono" class="form-control" placeholder="Ingrese un número de telefono" [(ngModel)]="persona.telefono" required #telefono="ngModel">
-
-                            <div class="alert alert-danger mt-2" [hidden]="telefono.valid || telefono.pristine">
-
-                                Este campo es obligatorio
-
-                            </div>
-
-                        </div>
-
-                        <nav class="botones-registro">
-
-                            <button class="opciones-registro" [disabled]="formularioProveedor.invalid">
-                                Registrar
-                            </button>
-                            
-                            <button class="opciones-registro" (click)="visible=!visible">
-                                Cancelar
-                            </button>
-                            
-                        </nav>
-            
-                    </form>
-
-                    <div class="cancel-alert" role="alert" [hidden]="!visible">
-                        <span [hidden]="!visible">
-                          <h2>¿Desea cancelar la transacción?</h2>
-                          <p>Si acepta, perderá todo el proceso y volverá a la página de proveedores</p>
-                      
-                          <button class="boton-cancel-alert" (click)="visible=visible">
-                            <a class="boton-ventana-emergente" href="principal/proveedores" aria-label="Perder proceso y volver a proveedores">
-                              Aceptar
-                            </a>
-                          </button>
-                      
-                          <button class="boton-cancel-alert" (click)="visible=!visible">
-                            Cancelar
-                          </button>
-                        </span>
-                      </div>
-            
-                </div>
+  
+              <div class="mb-2">
+                <label class="form-label">Teléfono: *</label>
+                <input type="number" name="telefono" class="form-control" placeholder="Ingrese un número de teléfono" [(ngModel)]="persona.telefono" required #telefono="ngModel">
+                <div class="alert alert-danger mt-2" [hidden]="telefono.valid || telefono.pristine">Este campo es obligatorio</div>
+              </div>
+  
+              <nav class="botones-registro">
+                <button type="submit" class="opciones-registro" [disabled]="formularioCliente.invalid" (click)="onSubmit(formularioCliente)">Actualizar</button>
+                <button type="button" class="opciones-registro" (click)="visible=!visible" (click)="navigateToClientes()">Cancelar</button>
+              </nav>
+            </form>
+  
+            <div class="cancel-alert" role="alert" [hidden]="!visible">
+              <span>
+                <h2>¿Desea cancelar la transacción?</h2>
+                <p>Si acepta, perderá todo el proceso y volverá a la página de clientes.</p>
+                <button class="boton-cancel-alert" (click)="navigateToClientes()">Aceptar</button>
+                <button class="boton-cancel-alert" (click)="visible=!visible">Cancelar</button>
+              </span>
             </div>
-            
-        </nav>
-
+          </div>
+        </div>
+      </nav>
     </body>
     </html>
   </section>
+  

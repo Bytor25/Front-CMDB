@@ -18,21 +18,24 @@ import { map, catchError } from 'rxjs';
   }
 
   update(numeroDocumento: String, Proveedor: any): Observable<any> {
-    return this.http.put<void>(`${this.url}/${numeroDocumento}`, Proveedor).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.put<void>(`${this.url}/${numeroDocumento}`, Proveedor)
   }
 
-  consultarPorId(numeroDocumento: string): Observable<proveedor> {
+  consultarPorId(numeroDocumento: string): Observable<any> {
     return this.http.get<{ datos: proveedor[] }>(`${this.url}/${numeroDocumento}`).pipe(
-      map(response => response.datos[0]),
-      catchError(this.handleError)
+      map(response => response.datos),
     );
   }
 
   getProveedor(): Observable<any> {
     return this.http.get<{ datos: proveedor[] }>(this.url).pipe(
       map(response => response.datos)
+    );
+  }
+
+  consultarPorIdTipoDocumento(numeroDocumento: String, tipoDocumento: any): Observable<any> {
+    return this.http.get<{datos: proveedor[]}>(`${this.url}/${numeroDocumento}/${tipoDocumento}`).pipe(
+      map(response => response.datos[0]),
     );
   }
 

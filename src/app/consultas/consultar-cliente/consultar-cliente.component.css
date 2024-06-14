@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 10px auto;
-  display: flex; /* Agregado para centrar elementos dentro de la tarjeta */
+  display: flex;
   justify-content: center;
   align-items: center;
 }

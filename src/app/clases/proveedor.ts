@@ -1,5 +1,5 @@
 export class proveedor {
-    numeroDocumento: number | null = null;
+    numeroDocumento: string = '';
     tipoDocumento: tipoIdentificacion = new tipoIdentificacion;
     nombre: string = '';
     telefono: number | null = null;

@@ -38,7 +38,7 @@ const appRoutes: Routes = [
 
   {path: 'principal/proveedores', component: ProveedoresComponent},
   {path: 'proveedores/RegistrarProveedor', component: RegistroProveedoresComponent},
-  {path: 'proveedores/ActualizarProveedor', component: ActualizacionProveedorComponent},
+  {path: 'proveedores/ActualizarProveedor/:id/:tipoDocumento', component: ActualizacionProveedorComponent},
   {path: 'proveedores/ConsultarProveedor', component: ConsultarProveedorComponent}     
   
 ];    
