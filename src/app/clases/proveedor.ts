@@ -1,4 +1,5 @@
 export class proveedor {
+    identificador: string = '';
     numeroDocumento: string = '';
     tipoDocumento: tipoIdentificacion = new tipoIdentificacion;
     nombre: string = '';

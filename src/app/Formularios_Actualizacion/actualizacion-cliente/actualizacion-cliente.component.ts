@@ -37,7 +37,7 @@ export class ActualizacionClienteComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this.clienteService.update(this.persona.numeroDocumento, this.persona).subscribe(
+      this.clienteService.update(this.persona.identificador, this.persona).subscribe(
         response => {
           alert(response.mensajes[0])
           this.router.navigate(['principal/clientes']);

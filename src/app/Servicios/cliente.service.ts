@@ -32,8 +32,8 @@ export class ClienteService {
     );
   }
 
-  consultarPorIdTipoDocumento(numeroDocumento: String, tipoDocumento: any): Observable<any> {
-    return this.http.get<{datos: cliente[]}>(`${this.url}/${numeroDocumento}/${tipoDocumento}`).pipe(
+  consultarPorIdTipoDocumento(identificador: String, tipoDocumento: any): Observable<any> {
+    return this.http.get<{datos: cliente[]}>(`${this.url}/${identificador}/${tipoDocumento}`).pipe(
       map(response => response.datos[0]),
     );
   }

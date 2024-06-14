@@ -39,7 +39,7 @@ export class ActualizacionProveedorComponent {
   onSubmit(form: NgForm) {
 
     if (form.valid) {
-      this.proveedorService.update(this.persona.numeroDocumento, this.persona).subscribe(
+      this.proveedorService.update(this.persona.identificador, this.persona).subscribe(
 
         response => {
           alert(response.mensajes[0])
