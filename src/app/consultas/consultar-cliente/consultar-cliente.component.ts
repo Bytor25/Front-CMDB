@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cliente, tipoIdentificacion } from '../../clases/cliente';
+import { cliente } from '../../clases/cliente';
 import { ClienteService } from '../../Servicios/cliente.service';
 import { Router } from '@angular/router';
 

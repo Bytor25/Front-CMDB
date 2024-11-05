@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { cliente } from '../../clases/cliente';
 import { ClienteService } from '../../Servicios/cliente.service';
-import { FormsModule } from '@angular/forms'; 
 import { Router } from '@angular/router';
+import { TipoDocumentoService } from '../../Servicios/tipoDocumento.service';
+import { tipoIdentificacion } from '../../clases/tipoDocumento';
+import { cliente } from '../../clases/cliente';
 
 @Component({
   selector: 'app-registro-cliente',
@@ -12,14 +13,18 @@ import { Router } from '@angular/router';
 export class RegistroClienteComponent implements OnInit {
 
   visible: boolean = false;
-  persona: cliente = new cliente();
+  persona: cliente = new cliente;
   mensaje: string = "";
+  tipoDocumento: tipoIdentificacion = new tipoIdentificacion;
+  tiposDocumentos: tipoIdentificacion[] = [];
 
   
-  constructor(private clienteservice: ClienteService, private router: Router ){}
+  constructor(private clienteservice: ClienteService, private router: Router, private tipoDocumentoService: TipoDocumentoService){}
 
   ngOnInit(): void {
+    this.getTiposDocumentos();
   }
+
 
   create(): void {
     this.clienteservice.create(this.persona).subscribe(
@@ -31,6 +36,15 @@ export class RegistroClienteComponent implements OnInit {
     console.error(error);
     alert(error.error.mensajes[0]);
   }
+    );
+  }
+
+  getTiposDocumentos(): void{
+    this.tipoDocumentoService.getTipoDocumento().subscribe(
+      (response) =>{
+        this.tiposDocumentos = response;
+      },
+      (error) => console.error('Error fetching clientes:', error)
     );
   }
 }

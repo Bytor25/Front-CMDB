@@ -40,10 +40,7 @@
                             <select id="tipoDocumento" aria-placeholder="seleccion una opción" name="tipoDocumento" [(ngModel)]="persona.tipoDocumento.identificador" >
 
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="1">Cédula de Ciudadanía</option>
-                                <option value="2">Tarjeta de Identidad</option>
-                                <option value="3">Pasaporte</option>
-                                <option value="4">NIT</option>
+                                <option *ngFor="let item of tiposDocumentos" [value]="item.identificador">{{ item.nombre }}</option>
                             </select>
 
                             

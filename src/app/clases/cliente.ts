@@ -1,3 +1,5 @@
+import { tipoIdentificacion } from "./tipoDocumento";
+
 export class cliente {
     identificador: string = '';
     numeroDocumento: string = '';
@@ -7,8 +9,4 @@ export class cliente {
     correo: string = '';
     telefono: number | null = null;
     estado: boolean = true
-}
-export class tipoIdentificacion{
-    identificador: string = '';
-    nombre: string = '';
 }
