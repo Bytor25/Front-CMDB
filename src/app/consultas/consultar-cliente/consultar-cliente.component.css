@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .card-body {
@@ -49,7 +50,7 @@ tbody tr:hover {
 .busqueda {
   margin: 10px;
   width: 100%;
-  max-width: 290px; 
+  max-width: 290px;
 }
 
 .home {
@@ -60,9 +61,53 @@ tbody tr:hover {
   top: 10px;
 }
 
-.funciones_Consultar:hover{
+.funciones_Consultar:hover {
   background-color: #B2B2B2;
   box-shadow: 6px 5px 5px 0 rgba(0, 0, 0, 0.80);
   color: black;
+}
 
+@media (max-width: 576px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .busqueda {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .home {
+    max-width: 50px;
+    max-height: 50px;
+    left: 5px;
+    top: 5px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .busqueda {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    flex-direction: row;
+  }
+
+  .busqueda {
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .card {
+    flex-direction: row;
+  }
 }
