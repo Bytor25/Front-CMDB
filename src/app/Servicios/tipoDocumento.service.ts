@@ -6,10 +6,11 @@ import { tipoIdentificacion } from "../clases/tipoDocumento";
     providedIn: 'root'
   })
 export class TipoDocumentoService {
-    private url: string = "http://localhost:8080/api/v1/tipoDocumento";
+    private url: string = "https://localhost:8080/generales/api/v1/tiposdocumento";
     constructor(private http: HttpClient){}
 
     getTipoDocumento(): Observable<any> {
+        
         return this.http.get<{ datos: tipoIdentificacion }>(this.url).pipe(
           map(response => response.datos)
         );

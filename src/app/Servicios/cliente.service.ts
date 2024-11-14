@@ -8,7 +8,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ClienteService {
-  private url: string = "http://localhost:8080/api/v1/clientes";
+  private url: string = "https://localhost:8080/generales/api/v1/clientes";
 
   constructor(private http: HttpClient) { }
 

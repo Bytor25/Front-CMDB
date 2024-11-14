@@ -40,6 +40,7 @@ export class RegistroClienteComponent implements OnInit {
   }
 
   getTiposDocumentos(): void{
+    
     this.tipoDocumentoService.getTipoDocumento().subscribe(
       (response) =>{
         this.tiposDocumentos = response;
